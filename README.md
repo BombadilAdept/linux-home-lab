@@ -1,8 +1,8 @@
-# CachyOS Home Lab
+# Linux Home Lab
 
 A personal Linux home lab setup documented as part of my self-directed learning journey into IT and cybersecurity.
 
-> **Transparency note:** This setup was built and documented with AI assistance (Claude by Anthropic). I'm an IT student learning Linux from the ground up. This repo is an honest record of what I've configured, understood, and explored, not a showcase of expert-level work.
+> **Transparency note:** This setup was built and documented with AI assistance (Claude by Anthropic). I'm an IT student learning Linux from the ground up. This repo is an honest record of what I've configured, understood, and explored — not a showcase of expert-level work.
 
 ---
 
@@ -10,47 +10,43 @@ A personal Linux home lab setup documented as part of my self-directed learning 
 
 | Component | Details |
 |-----------|---------|
-| Distro | CachyOS (Arch-based, rolling release) |
+| Distro | Fedora Linux 44 Workstation |
 | CPU | Intel Core i5-4690 |
 | GPU | NVIDIA GeForce GTX 970 |
 | RAM | 16 GB |
-| Primary storage | SSD (btrfs filesystem) |
-| Secondary storage | HDD (mounted manually) |
+| Primary storage | 120 GB SSD (Samsung) — Btrfs, automatic partitioning |
+| Secondary storage | 1 TB HDD (Western Digital) — ext4, mounted at `/mnt/HDD` |
 
 ---
 
 ## What's configured
 
 ### Desktop environment
-- **KDE Plasma** on **Wayland** (a modern display protocol that replaces the older X11)
+- **GNOME** on **Wayland** (a modern display protocol that replaces the older X11)
 - **Xwayland** for legacy app compatibility (allows older apps built for X11 to run under Wayland)
 
-### Security & networking
-- **UFW** (Uncomplicated Firewall) — basic firewall rules configured
-- **DNS** set to **Quad9** (privacy-focused, malware-blocking DNS resolver)
-- Standard user/root separation following Linux security practices
+### Version control & remote access
+- **Git** configured with ProtonMail identity
+- **SSH key** (ED25519) generated and linked to GitHub — authenticated successfully
 
-### Storage & backups
-- Filesystem: **btrfs** (a modern Linux filesystem with built-in snapshot support)
-- Snapshot tool: **Snapper** — automated system snapshots for rollback capability
-- Secondary HDD mounted and configured via `/etc/fstab`
+### Storage
+- Primary filesystem: **Btrfs** (a modern Linux filesystem with built-in snapshot support)
+- Secondary HDD mounted permanently via `/etc/fstab` using UUID
 
-### Gaming (Linux-native setup)
-- Steam installed and running under Wayland
-- **ProtonGE** (a community-maintained Proton version) for Windows game compatibility
-- Tested with: Deep Rock Galactic
+### Media
+- **Strawberry Music Player** installed via RPM (not Flatpak), pointing to local music library on HDD
 
 ### Other
-- Printing configured under Wayland
 - Browser: Firefox with uBlock Origin
 
 ---
 
 ## In progress
 
-- [ ] Resize btrfs partition from live environment to make room for Fedora Workstation (dual-boot)
-- [ ] Investigate persistent cursor glitch at cold boot
-- [ ] Expand security tooling (Wireshark, log analysis)
+- [ ] Run initial system update (`sudo dnf upgrade`)
+- [ ] Configure security tooling (UFW, Wireshark, log analysis)
+- [ ] Set up privacy-focused DNS (Quad9)
+- [ ] Explore TryHackMe for hands-on cybersecurity practice
 
 ---
 
@@ -61,7 +57,6 @@ I'm 37, working at a public library in Patagonia, Argentina, and teaching myself
 This repo is part of a broader portfolio being built alongside the **Google Cybersecurity Professional Certificate** on Coursera.
 
 Tools and resources I'm using:
-- [CachyOS](https://cachyos.org/)
-- [Snapper](https://wiki.archlinux.org/title/Snapper)
-- [Quad9 DNS](https://www.quad9.net/)
+- [Fedora Linux](https://fedoraproject.org/)
+- [Quad9 DNS](https://www.quad9.net/) *(planned)*
 - [TryHackMe](https://tryhackme.com/) *(planned)*
